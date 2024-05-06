@@ -1,35 +1,44 @@
 .App {
-  text-align: left;
+    text-align: left;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  vertical-align: top;
-  font-size: calc(4px + 1vmin);
-  color: white;
-  padding: 2em;
+    background-color: #282c34;
+    min-height: 100vh;
+    vertical-align: top;
+    font-size: calc(4px + 1vmin);
+    color: white;
+    padding: 2em;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 .textarea {
-  width: 31em;
-  height: 100px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    width: 31em;
+    height: 100px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .trigger-btn {
-  width: 28em;
-  height: 30px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: aqua;
-  font-size: 1em;
+    width: 28em;
+    height: 30px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: aqua;
+    font-size: 1em;
+}
+
+.endpoint {
+    width: 23em;
+    font-size: 1em;
+}
+
+.info {
+    margin: 8px 0;
 }

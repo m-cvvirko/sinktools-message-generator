@@ -4,6 +4,7 @@ import axios from 'axios';
 import './App.css';
 
 const App = () => {
+    const [endpoint, setEndpoint] = useState('https://localhost:1234/messages');
     const [message, setMessage] = useState('');
     const [timestamp, setTimestamp] = useState('');
     const [idCounter, setIdCounter] = useState(1);
@@ -26,7 +27,7 @@ const App = () => {
         };
 
         try {
-            await axios.post('https://your-endpoint.com/messages', newMessage);
+            await axios.post(endpoint, newMessage);
             console.log('Message sent:', newMessage);
 
             setMessage('');
@@ -42,6 +43,14 @@ const App = () => {
             <header className="App-header">
                 <h1>Sink Tools Message Generator</h1>
                 <div>
+                    <div className="info">
+                        Endpoint: <input className="endpoint"
+                            type="text"
+                            value={endpoint}
+                            onChange={(e) => setEndpoint(e.target.value)}
+                            placeholder="https://your-endpoint.com/messages"
+                        />
+                    </div>
                     <div>
                       <textarea className="textarea"
                                 type="text"
@@ -50,9 +59,9 @@ const App = () => {
                                 placeholder="Type your message here"
                       />
                     </div>
-                    <div>
-                        {timestamp && (
-                            <p>Generated Timestamp: {timestamp}</p>
+                    <div className="info">
+                        Generated Timestamp: {timestamp && (
+                            <span>{timestamp}</span>
                         )}
                     </div>
                     <div>
