@@ -1,25 +1,69 @@
-import logo from './logo.svg';
+// src/App.js
+import React, {useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [message, setMessage] = useState('');
+    const [timestamp, setTimestamp] = useState('');
+    const [idCounter, setIdCounter] = useState(1);
+
+    useEffect(() => {
+        if (message.trim()) {
+            const now = new Date();
+            const formattedTimestamp = now.toISOString();
+            setTimestamp(formattedTimestamp);
+        } else {
+            setTimestamp('');
+        }
+    }, [message]);
+
+    const sendMessage = async () => {
+        const newMessage = {
+            id: idCounter,
+            timestamp: timestamp,
+            message: message,
+        };
+
+        try {
+            await axios.post('https://your-endpoint.com/messages', newMessage);
+            console.log('Message sent:', newMessage);
+
+            setMessage('');
+            setTimestamp('');
+            setIdCounter(idCounter + 1);
+        } catch (error) {
+            console.error('Error sending message:', error);
+        }
+    };
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                <h1>Sink Tools Message Generator</h1>
+                <div>
+                    <div>
+                      <textarea className="textarea"
+                                type="text"
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                                placeholder="Type your message here"
+                      />
+                    </div>
+                    <div>
+                        {timestamp && (
+                            <p>Generated Timestamp: {timestamp}</p>
+                        )}
+                    </div>
+                    <div>
+                        <button className="trigger-btn" onClick={sendMessage}>Send Message</button>
+                    </div>
+                </div>
+            </header>
+
+
+        </div>
+    );
+};
 
 export default App;
