@@ -4,7 +4,7 @@ import axios from 'axios';
 import './App.css';
 
 const App = () => {
-    const [endpoint, setEndpoint] = useState('https://localhost:1234/messages');
+    const [endpoint, setEndpoint] = useState('http://localhost:8080/api/messages');
     const [message, setMessage] = useState('');
     const [timestamp, setTimestamp] = useState('');
     const [idCounter, setIdCounter] = useState(1);

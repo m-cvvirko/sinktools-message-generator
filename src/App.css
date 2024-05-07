@@ -16,7 +16,7 @@
 }
 
 .textarea {
-    width: 31em;
+    width: 28em;
     height: 100px;
     padding: 8px;
     border: 1px solid #ccc;
@@ -24,7 +24,7 @@
 }
 
 .trigger-btn {
-    width: 28em;
+    width: 28.5em;
     height: 30px;
     padding: 8px;
     border: 1px solid #ccc;
@@ -35,8 +35,11 @@
 }
 
 .endpoint {
-    width: 23em;
+    width: 23.4em;
     font-size: 1em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .info {
